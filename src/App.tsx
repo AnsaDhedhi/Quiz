@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import { QuestionCard } from './components/QuestionCard';
 import { fetchQuestions, Difficulty, QuestionsState } from './API';
@@ -53,7 +52,7 @@ const checkAnswer = (e:React.MouseEvent<HTMLButtonElement>) =>{
     const correct = questions[number].correct_answer === answer;
     console.log(correct)
 
-    if (correct) setScore(prev => prev + 1)
+    if (correct) {setScore(score + 1)}
 
     const answerObject = {
       question : questions[number].question,
@@ -84,12 +83,12 @@ const checkAnswer = (e:React.MouseEvent<HTMLButtonElement>) =>{
        <b> Start Quiz </b>
       </button>  ) : null }
       </div>
-      {/* <div>
+      <div>
         {!gameOver ? (
       <p> Score : {score}
       </p> ) : null }
 
-      </div> */}
+      </div>
       <br/>
       <div >
       {Loading ? (
