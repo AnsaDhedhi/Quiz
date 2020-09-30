@@ -6,6 +6,19 @@ body{
   background-clip: content-box;
   background-repeat: no-repeat;
 }
+.container{
+  max-width: 400px;
+  min-height: 450px;
+  margin: 0 auto;
+  background-color: #efefef;
+  box-shadow: 0 0 10px gray;
+  margin-top: 50px;
+  padding: 15px 50px;
+}
+.h1 {
+  text-shadow: 2px 2px 5px  blue;
+}
+
 
 .App {
   text-align: center;
@@ -31,11 +44,21 @@ body{
   font-size: calc(10px + 2vmin);
   color: white;
 }
+.btn{
+  margin: 0px;
+  width: 200px;
+}
+.nxt_btn{
+  right: 10px;
 
+}
 .App-link {
   color: #61dafb;
 }
-
+#next_Btn{
+  width: 200px;
+  margin-left: 25px;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

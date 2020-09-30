@@ -71,7 +71,7 @@ const checkAnswer = (e:React.MouseEvent<HTMLButtonElement>) =>{
      
 
     
-    <div className="bg_image"> 
+    <div className="bg_image,container"> 
     
     <div className="App" >
      <div className="alert alert-info" role="alert">
@@ -100,9 +100,10 @@ const checkAnswer = (e:React.MouseEvent<HTMLButtonElement>) =>{
         </div>
       ) : null }
       </div>
-      <div>
+      <div >
       {!Loading && !gameOver ? (
         <QuestionCard 
+        
           QuestionNum={number + 1}
           totalQuestion= {TOTAL_QUESTION}
           question={questions[number].question}
@@ -111,19 +112,21 @@ const checkAnswer = (e:React.MouseEvent<HTMLButtonElement>) =>{
           callback={checkAnswer}
         /> ) : null }
         </div>
-        <div>
+        <div >
       {!gameOver && !Loading && userAnswers.length === number + 1 && number !== TOTAL_QUESTION - 1 ? (
-      <button onClick={nextQuestion}>
+        
+      <button className="btn btn-outline-info" onClick={nextQuestion} id="next_Btn">
         Next
-      </button> ) : null }
+      </button> ) : null  }
+      
       </div>
     </div>
     <br/>
     <br/>
+    {/* <br/>
     <br/>
     <br/>
-    <br/>
-    <br/>
+    <br/> */}
     </div>
   );
 }
