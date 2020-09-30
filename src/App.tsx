@@ -90,7 +90,7 @@ const checkAnswer = (e:React.MouseEvent<HTMLButtonElement>) =>{
         
         <div className="spinner-border text-info" role="status"> 
         
-        <h1 className="sr-only"></h1> 
+        <p className="sr-only"></p> 
         </div>
       ) : null }
       </div>
