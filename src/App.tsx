@@ -83,12 +83,7 @@ const checkAnswer = (e:React.MouseEvent<HTMLButtonElement>) =>{
        <b> Start Quiz </b>
       </button>  ) : null }
       </div>
-      <div>
-        {!gameOver ? (
-      <p> Score : {score}
-      </p> ) : null }
-
-      </div>
+    
       <br/>
       <div >
       {Loading ? (
@@ -118,6 +113,12 @@ const checkAnswer = (e:React.MouseEvent<HTMLButtonElement>) =>{
         Next
       </button> ) : null  }
       
+      </div>
+      <div>
+        {!gameOver ? (
+      <p> Score : {score}
+      </p> ) : null }
+
       </div>
     </div>
     <br/>
