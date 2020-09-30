@@ -123,10 +123,17 @@ const checkAnswer = (e:React.MouseEvent<HTMLButtonElement>) =>{
     </div>
     <br/>
     <br/>
-    {/* <br/>
     <br/>
     <br/>
-    <br/> */}
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    
     </div>
   );
 }
