@@ -3,7 +3,8 @@ import logo from './logo.svg';
 import './App.css';
 import { QuestionCard } from './components/QuestionCard';
 import { fetchQuestions, Difficulty, QuestionsState } from './API';
-import { totalmem } from 'os';
+
+
 
 const TOTAL_QUESTION = 10;
 
@@ -29,7 +30,7 @@ const StartQuiz = async() => {
   setGameOver(false);
   const newQuestions = await fetchQuestions(TOTAL_QUESTION, Difficulty.EASY);
   setQuestions(newQuestions);
-  // setScore(0);
+  setScore(0);
   setUserAnswers([]);
   setNumber(0);
   setLoading(false);
@@ -50,6 +51,8 @@ const checkAnswer = (e:React.MouseEvent<HTMLButtonElement>) =>{
     const answer = e.currentTarget.value;
 
     const correct = questions[number].correct_answer === answer;
+    console.log(correct)
+
     if (correct) setScore(prev => prev + 1)
 
     const answerObject = {
@@ -65,18 +68,39 @@ const checkAnswer = (e:React.MouseEvent<HTMLButtonElement>) =>{
 
 
   return (
-    <div className="App">
+     
+
+    
+    <div className="bg_image"> 
+    
+    <div className="App" >
+     <div className="alert alert-info" role="alert">
       <h1>Quiz</h1>
+      </div >
+      
+      <div>
       {gameOver || userAnswers.length === TOTAL_QUESTION ?( 
-      <button onClick={StartQuiz}> 
-        Start Quiz
+      <button onClick={StartQuiz} type="button" className="btn btn-outline-info"> 
+       <b> Start Quiz </b>
       </button>  ) : null }
+      </div>
+      {/* <div>
         {!gameOver ? (
       <p> Score : {score}
       </p> ) : null }
-      {Loading ? (
-      <h1>loading..</h1> ) : null }
 
+      </div> */}
+      <br/>
+      <div >
+      {Loading ? (
+        
+        <div className="spinner-border text-info" role="status"> 
+        
+        <h1 className="sr-only"></h1> 
+        </div>
+      ) : null }
+      </div>
+      <div>
       {!Loading && !gameOver ? (
         <QuestionCard 
           QuestionNum={number + 1}
@@ -86,11 +110,20 @@ const checkAnswer = (e:React.MouseEvent<HTMLButtonElement>) =>{
           userAnswer={userAnswers ? userAnswers[number] : undefined}
           callback={checkAnswer}
         /> ) : null }
+        </div>
+        <div>
       {!gameOver && !Loading && userAnswers.length === number + 1 && number !== TOTAL_QUESTION - 1 ? (
       <button onClick={nextQuestion}>
         Next
       </button> ) : null }
-      
+      </div>
+    </div>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
     </div>
   );
 }
