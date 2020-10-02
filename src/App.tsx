@@ -36,15 +36,15 @@ const StartQuiz = async() => {
   setLoading(false);
   
 };
-const checkScore = async() => {
+// const checkScore = async() => {
   
-  setGameOver(true);
-  setQuestions([]);
-  setUserAnswers([]);
-  setNumber(0);
+//   setGameOver(true);
+//   setQuestions([]);
+//   setUserAnswers([]);
+//   setNumber(0);
   
   
-};
+// };
 
 
 const nextQuestion = async() => {
