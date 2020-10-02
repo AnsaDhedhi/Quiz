@@ -5,7 +5,7 @@ import { fetchQuestions, Difficulty, QuestionsState } from './API';
 
 
 
-const TOTAL_QUESTION = 10;
+const TOTAL_QUESTION = 2;
 
 type AnswerObject ={
   question: string;
@@ -22,6 +22,7 @@ function App() {
   const [userAnswers, setUserAnswers] = useState<AnswerObject[]>([]);
   const [score, setScore] = useState(0);
   const [gameOver, setGameOver] = useState(true);
+  
 
 
 const StartQuiz = async() => {
@@ -33,7 +34,18 @@ const StartQuiz = async() => {
   setUserAnswers([]);
   setNumber(0);
   setLoading(false);
+  
 };
+const checkScore = async() => {
+  
+  setGameOver(true);
+  setQuestions([]);
+  setUserAnswers([]);
+  setNumber(0);
+  
+  
+};
+
 
 const nextQuestion = async() => {
   const nextQuestion = number + 1;
@@ -79,7 +91,7 @@ const checkAnswer = (e:React.MouseEvent<HTMLButtonElement>) =>{
       
       <div>
       {gameOver || userAnswers.length === TOTAL_QUESTION ?( 
-      <button onClick={StartQuiz} type="button" className="btn btn-outline-info"> 
+      <button onClick={StartQuiz} type="button" className="btn btn-outline-info" id="quiz_btn"> 
        <b> Start Quiz </b>
       </button>  ) : null }
       </div>
@@ -104,7 +116,10 @@ const checkAnswer = (e:React.MouseEvent<HTMLButtonElement>) =>{
           answers={questions[number].answers}
           userAnswer={userAnswers ? userAnswers[number] : undefined}
           callback={checkAnswer}
-        /> ) : null }
+      /> ) : 
+       null
+      // <p> {gameOver && Loading } Score : {score}</p> 
+      }
         </div>
         <div >
       {!gameOver && !Loading && userAnswers.length === number + 1 && number !== TOTAL_QUESTION - 1 ? (
@@ -114,13 +129,20 @@ const checkAnswer = (e:React.MouseEvent<HTMLButtonElement>) =>{
       </button> ) : null  }
       
       </div>
-      <div>
-        {!gameOver ? (
-      <p> Score : {score}
-      </p> ) : null }
-
+       <div>
+        
+      {gameOver || userAnswers.length === TOTAL_QUESTION ? (
+        <div  className="card text-white bg-info mb-3">
+        
+      <div className="card-header">
+         Score : {score}
       </div>
-    </div>
+      </div>
+       ) : null }
+      
+
+      </div> 
+    </div> 
     <br/>
     <br/>
     <br/>

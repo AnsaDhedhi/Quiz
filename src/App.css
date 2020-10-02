@@ -59,6 +59,12 @@ body{
   width: 200px;
   margin-left: 25px;
 }
+#quiz_btn{
+  width: 200px;
+  margin-left: 25px;
+
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
