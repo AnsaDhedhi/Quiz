@@ -5,7 +5,7 @@ import { fetchQuestions, Difficulty, QuestionsState } from './API';
 
 
 
-const TOTAL_QUESTION = 2;
+const TOTAL_QUESTION = 10;
 
 type AnswerObject ={
   question: string;
